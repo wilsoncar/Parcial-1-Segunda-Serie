@@ -1,0 +1,12 @@
+:host ::ng-deep .p-float-label {
+  display: grid;
+}
+
+:host ::ng-deep .p-float-label label {
+  padding-left: 10px;
+}
+
+.ui-messages-error {
+  color: red;
+  padding-left: 19px;
+}

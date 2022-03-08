@@ -1,0 +1,84 @@
+<p-card header="Register"
+  [style]="{'width': '410px', 'margin-left': '39%', 'margin-top': '125px', 'background-color': 'gainsboro'}"
+  styleClass="ui-card-shadow">
+  <form [formGroup]="registerForm">
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="text" pInputText formControlName="userName">
+        <label for="float-input">Name</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].userName?.errors?.required && registerForm['controls'].userName?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="text" pInputText formControlName="lastName">
+        <label for="float-input">LastName</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].lastName?.errors?.required && registerForm['controls'].lastName?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="email" pInputText formControlName="email">
+        <label for="float-input">Email</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].email?.errors?.required && registerForm['controls'].email?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="email" pInputText formControlName="confirmEmail">
+        <label for="float-input">Confirm Email</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].confirmEmail?.errors?.required && registerForm['controls'].confirmEmail?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="password" pInputText formControlName="password">
+        <label for="float-input">Password</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].password?.errors?.required && registerForm['controls'].password?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="password" pInputText formControlName="confirmPassword">
+        <label for="float-input">Confirm Password</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].confirmPassword?.errors?.required && registerForm['controls'].confirmPassword?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div *ngIf="tokenSended" class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="password" pInputText formControlName="token">
+        <label for="float-input">Token</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="registerForm['controls'].token?.errors?.required && registerForm['controls'].token?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <p>Do you have an account? <a href="/login">Login here!</a></p>
+  </form>
+  <p-footer>
+    <button *ngIf="!tokenSended" [disabled]="!registerForm.valid" pButton type="button" label="Register"
+      icon="pi pi-check" [style]="{'margin-right': '.25em', 'left': '34%'}" (click)="register()"></button>
+    <button *ngIf="tokenSended" [disabled]="!registerForm.controls['token'].valid" pButton type="button"
+      label="Activate User" icon="pi pi-check" [style]="{'margin-right': '.25em', 'left': '30%'}"
+      (click)="activateUser()"></button>
+  </p-footer>
+</p-card>
