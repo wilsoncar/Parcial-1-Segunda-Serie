@@ -1,0 +1,18 @@
+<app-menu></app-menu>
+<div class="p-col-12">
+  <h1 class="title">{{ favoriteDogNotSelected }}</h1>
+  <p-card *ngIf="randomImage"
+    [style]="{'width': '410px', 'margin-left': '39%', 'margin-top': '50px', 'background-color': 'gainsboro'}"
+    styleClass="ui-card-shadow">
+    <div class="p-grid">
+      <img src="{{ randomImage }}" alt="random image" [style]="{'width': '100%'}">
+    </div>
+    <p-footer>
+      <div class="p-col-12">
+        <button pButton type="button" label="Next" icon="pi pi-plus" (click)="dogRandom()"></button>
+        <button [disabled]="!favoriteDogNotSelected || !nextDog" pButton type="button" label="Select as favorite"
+          icon="pi pi-plus" [style]="{'margin-right': '.25em', 'left': '29%'}" (click)="addFavoriteDog()"></button>
+      </div>
+    </p-footer>
+  </p-card>
+</div>

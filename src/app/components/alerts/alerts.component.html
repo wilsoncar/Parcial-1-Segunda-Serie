@@ -1,0 +1,8 @@
+<p-toast position="top-right" [baseZIndex]="999999999">
+  <ng-template let-message id="alerts_toast" pTemplate="message">
+    <div style="text-align: left; word-wrap: break-word;">
+      <b>{{message.summary}}</b>
+      <p>{{message.detail}}</p>
+    </div>
+  </ng-template>
+</p-toast>

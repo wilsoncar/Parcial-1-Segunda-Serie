@@ -1,0 +1,31 @@
+<p-card header="Login"
+  [style]="{'width': '410px', 'margin-left': '39%', 'margin-top': '250px', 'background-color': 'gainsboro'}"
+  styleClass="ui-card-shadow">
+  <form [formGroup]="loginForm">
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="text" pInputText formControlName="email">
+        <label for="float-input">Email</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="loginForm['controls'].username?.errors?.required && loginForm['controls'].username?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <div class="p-col-12">
+      <span class="p-float-label p-col-12">
+        <input id="float-input" type="password" pInputText formControlName="password">
+        <label for="float-input">Password</label>
+      </span>
+      <div class="ui-messages-error"
+        *ngIf="loginForm['controls'].password?.errors?.required && loginForm['controls'].password?.touched">
+        {{'Field Required'}}
+      </div>
+    </div>
+    <p>Don't have an account yet? <a href="/register">Register</a></p>
+  </form>
+  <p-footer>
+    <button pButton type="button" label="Login" icon="pi pi-sign-in" [style]="{'margin-right': '.25em', 'left': '35%'}"
+      (click)="login()"></button>
+  </p-footer>
+</p-card>
